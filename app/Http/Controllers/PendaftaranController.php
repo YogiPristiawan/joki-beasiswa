@@ -16,14 +16,18 @@ class PendaftaranController extends Controller
         return view('pendaftaran.create', compact('mahasiswa'));
         // $data = Pendaftaran::orderBy('nim', 'asc')->get();
         // return view('pendaftaran.hasil')->with('data', $data,);
-        
+
     }
 
     // fungsi untuk membuat data baru
     public function create()
     {
         $this->middleware('auth')->only('pendaftaran.create');
-        return view('pendaftaran.create');
+
+        $mahasiswa = Mahasiswa::all();
+        return view('pendaftaran.create', [
+            "mahasiswa" => $mahasiswa
+        ]);
     }
 
     public function store(Request $request)

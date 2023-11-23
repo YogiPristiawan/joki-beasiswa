@@ -124,19 +124,19 @@
     </form>
 
     <script>
-        function getNamaIpk() {
-            var nim = $('#nim').val();
+        $("#nim").on("change", function(e) {
             $.ajax({
-                url: '/fetchIpk',
+                url: '/fetch-ipk',
                 type: 'GET',
                 data: {
-                    nim: nim
+                    nim: e.target.value
                 },
                 success: function(response) {
+                    console.log("response", response)
                     $('#nama').val(response.nama);
                     $('#ipk').val(response.ipk);
                 }
             });
-        }
+        })
     </script>
 @endsection

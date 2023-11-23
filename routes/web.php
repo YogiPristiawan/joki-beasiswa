@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\mahasiswaController;
-use App\Http\Controllers\sessionController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendaftaranController;
 use App\Models\Mahasiswa;
 use GuzzleHttp\Psr7\Request;
@@ -25,7 +25,7 @@ Route::middleware(['guest'])->group(function () {
     // Route::get('/home', [homeController::class, 'index']);
 // Route::post('/', [SessionController::class, 'login']);
 });
-Route::get('/', [homeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [SessionController::class, 'index']);
 Route::post('/login', [SessionController::class, 'login']);
 Route::post('/logout', [SessionController::class, 'logout']);
